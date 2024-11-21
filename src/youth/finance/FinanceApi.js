@@ -12,12 +12,12 @@ export const fetchAllPolicies = async () => {
 };
 
 // 페이징된 정책 가져오기
-export const fetchPagedPolicies = async (page, size) => {
+export const fetchPagedPolicies = async (page, size, keyword="") => {
   try {
-    const response = await axiosInstance.get(`/paged-policies?page=${page}&size=${size}`);
+    const response = await axiosInstance.get(`/paged-policies?page=${page}&size=${size}&keyword=${encodeURIComponent(keyword)}`);
     return response.data; // 데이터를 반환 (Page 객체)
   } catch (error) {
-    console.error(`Failed to fetch policies for page ${page}:`, error);
+    console.error(`Failed to fetch policies for page ${page} and keyword "${keyword}":`, error);
     throw error; // 에러 전달
   }
 };
