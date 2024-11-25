@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../main/Header"; // Header를 대문자로 수정
+import Footer from "../main/Footer";
 import { Outlet } from "react-router-dom";
 
 
